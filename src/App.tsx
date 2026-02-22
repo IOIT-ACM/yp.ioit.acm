@@ -8,6 +8,8 @@ import MobileMenu from "./components/MobileMenu";
 import Navigation from "./components/Navigation";
 import Sidebar from "./components/Sidebar";
 import StatsSection from "./components/StatsSection";
+import FeeSection from "./components/FeeSection"; // Import
+import RulesSection from "./components/RulesSection"; // Import
 
 export default function App() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,12 +31,18 @@ export default function App() {
 			<Hero y={y} />
 			<StatsSection />
 
+            {/* Added Rules Section here to establish context before committees */}
+            <RulesSection />
+
 			<main className="max-w-7xl mx-auto px-6 py-20">
 				<div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
 					<CommitteeSection />
 					<Sidebar />
 				</div>
 			</main>
+
+            {/* Added Fee Section before Chief Guest/Footer */}
+            <FeeSection />
 
 			<ChiefGuest />
 			<Footer scrollToSection={scrollToSection} />

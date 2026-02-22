@@ -1,61 +1,74 @@
 export const STATS = [
+  { label: "Committees", value: "2" },
+  { label: "Prize Pool", value: "₹20k" },
+  { label: "Days", value: "2" },
   { label: "Previous Editions", value: "3" },
-  { label: "Delegates Hosted", value: "400+" },
-  { label: "Prize Pool", value: "₹50k+" },
-  { label: "Colleges", value: "25+" },
+];
+
+export const PRIZE_BREAKDOWN = [
+  { rank: "Best Delegate", amount: "₹5,000" },
+  { rank: "High Commendation", amount: "₹3,000" },
+  { rank: "Special Mention", amount: "₹2,000" },
 ];
 
 export const COMMITTEES = [
   {
     id: "aippm",
     title: "All India Political Parties Meet (AIPPM)",
-    agenda:
-      "Deliberation on the Uniform Civil Code and its implications on the socio-political fabric of India.",
+    // Note: Doc says Agendas released soon, but keeping your placeholders is fine if you want content.
+    // If you want to match the doc strictly, change agenda to: "To Be Announced"
+    agenda: "Deliberation on the Uniform Civil Code and its implications on the socio-political fabric of India.",
     guideLink: "#",
     image: "https://picsum.photos/seed/aippm_new/800/600",
-    chair: "TBD",
-    description:
-      "A specialized committee designed to simulate the diverse political landscape of India, fostering debate on critical national issues.",
+    description: "Focuses on national policy issues, political negotiations, and consensus-building between government and opposition dynamics.",
   },
   {
     id: "mla",
     title: "Maharashtra Legislative Assembly (MLA)",
-    agenda:
-      "Reviewing the infrastructure development policies and addressing the agrarian crisis in Maharashtra.",
+    agenda: "Reviewing the infrastructure development policies and addressing the agrarian crisis in Maharashtra.",
     guideLink: "#",
     image: "https://picsum.photos/seed/mla_new/800/600",
-    chair: "TBD",
-    description:
-      "A regional simulation focusing on state-level governance, policy-making, and the specific challenges faced by Maharashtra.",
+    description: "Simulates the State Legislative Assembly focusing on law-making, state governance, and constituency-level concerns.",
   },
 ];
 
 export const SCHEDULE = [
   {
     day: "Day 1",
-    date: "March 13, 2026",
+    date: "March 14, 2026", // Updated date
     events: [
-      { time: "09:00 AM", title: "Registration & Breakfast" },
-      { time: "10:00 AM", title: "Opening Ceremony" },
-      { time: "11:30 AM", title: "Committee Session I" },
+      { time: "08:30 AM", title: "Reporting" },
+      { time: "09:30 AM", title: "Opening Ceremony" },
+      { time: "11:00 AM", title: "Session 1: Rules & Opening Statements" },
       { time: "01:30 PM", title: "Lunch Break" },
-      { time: "02:30 PM", title: "Committee Session II" },
-      { time: "05:30 PM", title: "High Tea & Networking" },
+      { time: "02:30 PM", title: "Session 2: Debate & Question Hour" },
+      { time: "06:00 PM", title: "Socials & High Tea" }, // Added Socials info
     ],
   },
   {
     day: "Day 2",
-    date: "March 14, 2026",
+    date: "March 15, 2026", // Updated date
     events: [
-      { time: "09:30 AM", title: "Breakfast" },
-      { time: "10:00 AM", title: "Committee Session III" },
-      { time: "01:00 PM", title: "Lunch Break" },
-      { time: "02:00 PM", title: "Committee Session IV" },
-      { time: "04:30 PM", title: "Closing Ceremony & Awards" },
+      { time: "09:30 AM", title: "Reporting" },
+      { time: "11:00 AM", title: "Session 3: Deliberations" },
+      { time: "01:30 PM", title: "Lunch Break" },
+      { time: "02:30 PM", title: "Session 4: Drafting & Voting" },
+      { time: "05:30 PM", title: "Valedictory & Closing Ceremony" },
     ],
   },
 ];
 
-export const REGISTER_URL =
-  "https://unstop.com/competitions/ioit-youth-parliament-2026-aissms-ioit-acm-1631021";
+export const FEES = {
+  aissms: {
+    priority: "₹500",
+    general: "₹800",
+    group: "₹600",
+  },
+  external: {
+    priority: "₹1,000",
+    general: "₹1,300",
+    group: "₹1,100",
+  }
+};
 
+export const REGISTER_URL = "https://unstop.com/competitions/ioit-youth-parliament-2026-aissms-ioit-acm-1631021";
