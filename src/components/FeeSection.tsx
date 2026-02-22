@@ -39,7 +39,7 @@ const FeeSection: FC = () => {
 
         <div className="mt-12 text-center">
              <p className="text-ink/60 text-sm mb-4">
-                *Group Registration applies for teams of 8+ members.
+                *Group Registration applies for teams of 6+ members.
                 <br />
                 *Flash Sale: ₹100 OFF coupons available on Mock YP Day (Feb).
              </p>
@@ -69,7 +69,7 @@ const PricingCard = ({ title, fees, subtitle, isDark = false }: any) => (
         <span className="text-2xl font-serif">{fees.general}</span>
       </div>
        <div className="flex justify-between items-end border-b border-current/10 pb-2">
-        <span className="font-medium">Group (8+)</span>
+        <span className="font-medium">Group (6+)</span>
         <span className="text-2xl font-serif">{fees.group}</span>
       </div>
     </div>
