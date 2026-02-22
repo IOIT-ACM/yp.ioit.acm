@@ -1,4 +1,4 @@
-import { MapPin, Phone, Instagram, Linkedin, ArrowUpRight } from "lucide-react";
+import { MapPin, Phone, Instagram, Linkedin, Facebook, ArrowUpRight } from "lucide-react";
 import { type FC, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -11,7 +11,6 @@ interface FooterProps {
 
 const Footer: FC<FooterProps> = ({ scrollToSection }) => {
 	const footerRef = useRef<HTMLElement>(null);
-	const marqueeRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		const ctx = gsap.context(() => {
@@ -40,15 +39,6 @@ const Footer: FC<FooterProps> = ({ scrollToSection }) => {
 				},
 			});
 
-			// Marquee animation
-			if (marqueeRef.current) {
-				gsap.to(marqueeRef.current, {
-					x: "-50%",
-					duration: 18,
-					ease: "none",
-					repeat: -1,
-				});
-			}
 		}, footerRef);
 
 		return () => ctx.revert();
@@ -58,28 +48,19 @@ const Footer: FC<FooterProps> = ({ scrollToSection }) => {
 
 	const socials = [
 		{
-			href: "https://instagram.com/ioit__acm",
-			label: "IOIT ACM",
-			sub: "Instagram",
-			Icon: Instagram,
-		},
-		{
-			href: "https://linkedin.com/company/ioit-acm",
-			label: "IOIT ACM",
-			sub: "LinkedIn",
-			Icon: Linkedin,
-		},
-		{
 			href: "https://instagram.com/ioit_mun",
-			label: "IOIT MUN",
-			sub: "Instagram",
+			label: "Instagram",
 			Icon: Instagram,
 		},
 		{
 			href: "https://linkedin.com/company/ioit-mun",
-			label: "IOIT MUN",
-			sub: "LinkedIn",
+			label: "LinkedIn",
 			Icon: Linkedin,
+		},
+		{
+			href: "https://facebook.com/ioitacm",
+			label: "Facebook",
+			Icon: Facebook,
 		},
 	];
 
@@ -92,11 +73,13 @@ const Footer: FC<FooterProps> = ({ scrollToSection }) => {
 		},
 		{
 			name: "Krushi Soni",
-			role: "Chargé d'Affaires",
+			role: "Chargé D'affaires",
 			tel: "+917249453073",
 			display: "+91 72494 53073",
 		},
 	];
+
+	const marqueeText = "IOIT Youth Parliament '26 · Organized by AISSMS IOIT ACM · Pune, India · Model United Nations";
 
 	return (
 		<footer
@@ -113,6 +96,22 @@ const Footer: FC<FooterProps> = ({ scrollToSection }) => {
 			<style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;1,9..40,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap');
 
+        /* ─── Marquee ─── */
+        @keyframes marquee-scroll {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .footer-marquee-track {
+          display: flex;
+          width: max-content;
+          animation: marquee-scroll 22s linear infinite;
+          will-change: transform;
+        }
+        .footer-marquee-track:hover {
+          animation-play-state: paused;
+        }
+
+        /* ─── Links & interactions ─── */
         .footer-link-btn {
           background: none;
           border: none;
@@ -156,18 +155,74 @@ const Footer: FC<FooterProps> = ({ scrollToSection }) => {
           margin: 0;
         }
 
-        .footer-marquee-track {
-          display: flex;
-          width: max-content;
-          gap: 0;
-        }
-
-        .arrow-icon {
-          transition: transform 0.2s;
-        }
+        .arrow-icon { transition: transform 0.2s; }
         .footer-social-link:hover .arrow-icon,
         .footer-link-btn:hover .arrow-icon {
           transform: translate(2px, -2px);
+        }
+
+        /* ─── Responsive grid ─── */
+        .footer-main-body {
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 48px 48px 32px;
+        }
+
+        .footer-grid {
+          display: grid;
+          grid-template-columns: 2fr 1fr 1fr 1.4fr;
+          gap: 40px 32px;
+          margin-bottom: 48px;
+          align-items: start;
+        }
+
+        .footer-brand-col {
+          grid-column: 1;
+        }
+
+        /* Tablet */
+        @media (max-width: 900px) {
+          .footer-main-body {
+            padding: 40px 32px 28px;
+          }
+          .footer-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 32px 24px;
+          }
+          .footer-brand-col {
+            grid-column: 1 / -1;
+          }
+        }
+
+        /* Mobile */
+        @media (max-width: 560px) {
+          .footer-main-body {
+            padding: 32px 20px 24px;
+          }
+          .footer-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 28px 16px;
+          }
+          .footer-brand-col {
+            grid-column: 1 / -1;
+          }
+          .footer-contact-col {
+            grid-column: 1 / -1;
+          }
+          .footer-contact-list {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px 8px;
+            flex-direction: unset !important;
+          }
+          .footer-big-text {
+            font-size: clamp(36px, 13vw, 80px) !important;
+          }
+          .footer-bottom-bar {
+            flex-direction: column;
+            align-items: flex-start !important;
+            gap: 6px !important;
+          }
         }
       `}</style>
 
@@ -180,8 +235,9 @@ const Footer: FC<FooterProps> = ({ scrollToSection }) => {
 					overflow: "hidden",
 				}}
 			>
-				<div ref={marqueeRef} className="footer-marquee-track">
-					{Array(6)
+				<div className="footer-marquee-track">
+					{/* Duplicate 8× so it always fills the viewport seamlessly at any size */}
+					{Array(8)
 						.fill(null)
 						.map((_, i) => (
 							<span
@@ -196,30 +252,17 @@ const Footer: FC<FooterProps> = ({ scrollToSection }) => {
 									padding: "0 48px",
 								}}
 							>
-								IOIT Youth Parliament '26 &nbsp;·&nbsp; Organized by AISSMS IOIT
-								ACM &nbsp;·&nbsp; Pune, India &nbsp;·&nbsp; Model United Nations
+								{marqueeText}
 							</span>
 						))}
 				</div>
 			</div>
 
 			{/* Main footer body */}
-			<div
-				style={{ maxWidth: 1280, margin: "0 auto", padding: "64px 32px 48px" }}
-			>
-				<div
-					style={{
-						display: "grid",
-						gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-						gap: "48px 32px",
-						marginBottom: "64px",
-					}}
-				>
-					{/* Brand col */}
-					<div
-						className="footer-col"
-						style={{ gridColumn: "span 2", minWidth: 220 }}
-					>
+			<div className="footer-main-body">
+				<div className="footer-grid">
+					{/* ── Brand col ── */}
+					<div className="footer-col footer-brand-col">
 						<div
 							style={{
 								fontFamily: "'Cormorant Garamond', serif",
@@ -271,7 +314,7 @@ const Footer: FC<FooterProps> = ({ scrollToSection }) => {
 						</div>
 					</div>
 
-					{/* Quick Links */}
+					{/* ── Quick Links ── */}
 					<div className="footer-col">
 						<h4
 							style={{
@@ -282,6 +325,7 @@ const Footer: FC<FooterProps> = ({ scrollToSection }) => {
 								opacity: 0.4,
 								marginBottom: "24px",
 								fontWeight: 400,
+								margin: "0 0 24px",
 							}}
 						>
 							Navigate
@@ -314,7 +358,7 @@ const Footer: FC<FooterProps> = ({ scrollToSection }) => {
 						</ul>
 					</div>
 
-					{/* Socials */}
+					{/* ── Socials ── */}
 					<div className="footer-col">
 						<h4
 							style={{
@@ -325,6 +369,7 @@ const Footer: FC<FooterProps> = ({ scrollToSection }) => {
 								opacity: 0.4,
 								marginBottom: "24px",
 								fontWeight: 400,
+								margin: "0 0 24px",
 							}}
 						>
 							Socials
@@ -339,7 +384,7 @@ const Footer: FC<FooterProps> = ({ scrollToSection }) => {
 								gap: "4px",
 							}}
 						>
-							{socials.map(({ href, label, sub, Icon }) => (
+							{socials.map(({ href, label, Icon }) => (
 								<li key={href}>
 									<a
 										href={href}
@@ -349,12 +394,7 @@ const Footer: FC<FooterProps> = ({ scrollToSection }) => {
 										style={{ fontSize: "13px", fontWeight: 300 }}
 									>
 										<Icon style={{ width: 14, height: 14, flexShrink: 0 }} />
-										<span>
-											{label}
-											<span style={{ opacity: 0.45, marginLeft: 4 }}>
-												— {sub}
-											</span>
-										</span>
+										<span>{label}</span>
 										<ArrowUpRight
 											className="arrow-icon"
 											style={{
@@ -370,8 +410,8 @@ const Footer: FC<FooterProps> = ({ scrollToSection }) => {
 						</ul>
 					</div>
 
-					{/* Contact */}
-					<div className="footer-col">
+					{/* ── Contact ── */}
+					<div className="footer-col footer-contact-col">
 						<h4
 							style={{
 								fontFamily: "'DM Mono', monospace",
@@ -381,11 +421,13 @@ const Footer: FC<FooterProps> = ({ scrollToSection }) => {
 								opacity: 0.4,
 								marginBottom: "24px",
 								fontWeight: 400,
+								margin: "0 0 24px",
 							}}
 						>
 							Contact
 						</h4>
 						<ul
+							className="footer-contact-list"
 							style={{
 								listStyle: "none",
 								margin: 0,
@@ -470,6 +512,7 @@ const Footer: FC<FooterProps> = ({ scrollToSection }) => {
 
 				{/* Bottom bar */}
 				<div
+					className="footer-bottom-bar"
 					style={{
 						display: "flex",
 						flexWrap: "wrap",
