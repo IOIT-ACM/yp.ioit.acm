@@ -15,9 +15,7 @@ export const COMMITTEES = [
   {
     id: "aippm",
     title: "All India Political Parties Meet (AIPPM)",
-    // Note: Doc says Agendas released soon, but keeping your placeholders is fine if you want content.
-    // If you want to match the doc strictly, change agenda to: "To Be Announced"
-    agenda: "Deliberation on the Uniform Civil Code and its implications on the socio-political fabric of India.",
+    agenda: "Deliberation on the Union Budget 2026 focusing on middle-class welfare through fiscal discipline, revenue growth, spending priorities, and economic stability.",
     guideLink: "#",
     image: "https://picsum.photos/seed/aippm_new/800/600",
     description: "Focuses on national policy issues, political negotiations, and consensus-building between government and opposition dynamics.",
@@ -25,7 +23,7 @@ export const COMMITTEES = [
   {
     id: "mla",
     title: "Maharashtra Legislative Assembly (MLA)",
-    agenda: "Reviewing the infrastructure development policies and addressing the agrarian crisis in Maharashtra.",
+    agenda: "Analysis of the Economic Impact of Direct Benefit Transfer (DBT) Schemes in the State: Public Welfare or a Burden on the Treasury for Elections?",
     guideLink: "#",
     image: "https://picsum.photos/seed/mla_new/800/600",
     description: "Simulates the State Legislative Assembly focusing on law-making, state governance, and constituency-level concerns.",
@@ -35,19 +33,19 @@ export const COMMITTEES = [
 export const SCHEDULE = [
   {
     day: "Day 1",
-    date: "March 14, 2026", // Updated date
+    date: "March 14, 2026",
     events: [
       { time: "08:30 AM", title: "Reporting" },
       { time: "09:30 AM", title: "Opening Ceremony" },
       { time: "11:00 AM", title: "Session 1: Rules & Opening Statements" },
       { time: "01:30 PM", title: "Lunch Break" },
       { time: "02:30 PM", title: "Session 2: Debate & Question Hour" },
-      { time: "06:00 PM", title: "Socials & High Tea" }, // Added Socials info
+      { time: "06:00 PM", title: "Socials & High Tea" },
     ],
   },
   {
     day: "Day 2",
-    date: "March 15, 2026", // Updated date
+    date: "March 15, 2026",
     events: [
       { time: "09:30 AM", title: "Reporting" },
       { time: "11:00 AM", title: "Session 3: Deliberations" },

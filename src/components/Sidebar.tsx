@@ -2,7 +2,7 @@ import { type FC } from "react";
 import { REGISTER_URL, SCHEDULE } from "../lib/constants";
 
 const Sidebar: FC = () => (
-  <div className="lg:col-span-4 space-y-16">
+  <aside className="md:col-span-4 space-y-16 md:sticky md:top-24 h-fit">
     <div id="schedule" className="scroll-mt-28">
       <h3 className="font-mono text-xs uppercase tracking-widest border-b border-ink pb-2 mb-6">
         Itinerary
@@ -28,7 +28,7 @@ const Sidebar: FC = () => (
       </div>
     </div>
 
-    <div className="sticky top-24">
+    <div>
       <div className="bg-ink text-paper p-8 text-center">
         <h3 className="font-serif text-2xl italic mb-2">Secure Your Seat</h3>
         <p className="text-sm opacity-70 mb-6">
@@ -49,8 +49,7 @@ const Sidebar: FC = () => (
         </div>
       </div>
     </div>
-  </div>
+  </aside>
 );
 
 export default Sidebar;
-

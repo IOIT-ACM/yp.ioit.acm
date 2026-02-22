@@ -10,7 +10,7 @@ const PRIZES = [
 ];
 
 const CommitteeSection: FC = () => (
-  <div id="committees" className="lg:col-span-8 space-y-20">
+  <div id="committees" className="md:col-span-8 space-y-20">
     <div className="flex items-baseline justify-between border-b border-ink pb-4 mb-12">
       <h2 className="font-serif text-3xl italic">Committees & Agendas</h2>
     </div>

@@ -16,7 +16,7 @@ const FeeSection: FC = () => {
           <h2 className="font-serif text-4xl md:text-5xl italic mb-6">Registration Fees</h2>
           <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full border border-accent/20">
             <Zap className="w-4 h-4 fill-current" />
-            <span className="text-sm font-bold tracking-wider uppercase">Priority Phase Live</span>
+            <span className="text-sm font-bold tracking-wider uppercase">General Phase Live</span>
           </div>
         </motion.div>
 
