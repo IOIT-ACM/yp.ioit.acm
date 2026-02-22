@@ -10,7 +10,7 @@ const CHIEF_GUEST = {
 
 const ChiefGuest: FC = () => (
 	<section
-		className="py-20 border-b border-ink bg-paper scroll-mt-23"
+		className="py-20 border-b border-ink bg-paper scroll-mt-23 hidden"
 		id="chiefguest"
 	>
 		<div className="max-w-7xl mx-auto px-6">

@@ -53,12 +53,12 @@ const Hero: FC<HeroProps> = ({ y }) => (
 								IOIT.
 							</p>
 
-							<div className="flex flex-row gap-10  ">
+							<div className="flex flex-col md:flex-row gap-10  ">
 								<motion.a
 									href={REGISTER_URL}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="inline-flex items-center gap-2 bg-accent text-white px-8 py-4 font-medium text-lg hover:bg-accent/90 transition-colors shadow-lg hover:shadow-accent/20 cursor-pointer"
+									className="inline-flex w-fit items-center gap-2 bg-accent text-white px-8 py-4 font-medium text-lg hover:bg-accent/90 transition-colors shadow-lg hover:shadow-accent/20 cursor-pointer"
 								>
 									Register Now <ArrowRight className="w-5 h-5" />
 								</motion.a>
@@ -71,9 +71,6 @@ const Hero: FC<HeroProps> = ({ y }) => (
 							</div>
 						</motion.div>
 					</motion.div>
-				</div>
-				<div className="lg:col-span-4 flex flex-col justify-end items-start lg:items-end">
-					<div className="w-full h-px bg-paper/30 mb-6 lg:hidden"></div>
 				</div>
 			</div>
 		</div>
