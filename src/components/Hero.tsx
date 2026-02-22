@@ -8,17 +8,17 @@ interface HeroProps {
 }
 
 const MARQUEE = [
-	"Socials",
-	"Party",
-	"2 Days",
+	"Socials party",
+	"2 Day committee sessions",
 	"Study guide provided",
 	"₹20,000 Prize Pool",
 	"For beginners and pros",
+	"Training sessions available",
 ];
 const Hero: FC<HeroProps> = ({ y }) => (
 	<header
 		id="hero"
-		className="relative pt-32 pb-20 px-6 md:pt-48 md:pb-32 border-b border-ink overflow-hidden"
+		className="relative pt-32 pb-20 px-6 md:pt-48 md:pb-32 border-b border-ink overflow-hidden h-screen"
 	>
 		<div className="absolute inset-0 z-0">
 			<video
@@ -34,8 +34,8 @@ const Hero: FC<HeroProps> = ({ y }) => (
 			<div className="absolute inset-0 bg-black/60 z-10"></div>
 		</div>
 
-		<div className="max-w-7xl mx-auto relative z-20 text-paper">
-			<div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+		<div className="max-w-7xl mx-auto relative z-20 text-paper h-full flex items-end">
+			<div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end w-full">
 				<div className="lg:col-span-8">
 					<motion.div style={{ y }}>
 						<motion.div
@@ -43,11 +43,11 @@ const Hero: FC<HeroProps> = ({ y }) => (
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.8, ease: "easeOut" }}
 						>
-							<h1 className="font-serif text-6xl md:text-8xl lg:text-9xl leading-[0.9] mb-8 text-white drop-shadow-2xl">
+							<h1 className="font-serif text-7xl md:text-8xl lg:text-9xl leading-[0.9] mb-8 text-white drop-shadow-2xl">
 								Youth <br />
 								<span className="italic font-light text-paper">Parliament</span>
 							</h1>
-							<p className="text-lg md:text-xl max-w-xl leading-relaxed opacity-90 text-paper drop-shadow-md mb-8">
+							<p className="text-sm md:text-xl max-w-xl leading-relaxed opacity-90 text-paper drop-shadow-md mb-8">
 								Join us for two days of intense debate, diplomacy, and
 								leadership. The premier youth parliament simulation at AISSMS
 								IOIT.
@@ -58,13 +58,13 @@ const Hero: FC<HeroProps> = ({ y }) => (
 									href={REGISTER_URL}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="inline-flex w-fit items-center gap-2 bg-accent text-white px-8 py-4 font-medium text-lg hover:bg-accent/90 transition-colors shadow-lg hover:shadow-accent/20 cursor-pointer"
+									className="inline-flex w-fit items-center gap-2 bg-accent text-white px-6 py-2 md:px-8 md:py-4 font-medium text-lg hover:bg-accent/90 transition-colors shadow-lg hover:shadow-accent/20 cursor-pointer"
 								>
 									Register Now <ArrowRight className="w-5 h-5" />
 								</motion.a>
 								<a
 									href="#schedule"
-									className="group flex items-center gap-2 my-auto text-white font-medium  hover:underline underline-offset-4 drop-shadow-md"
+									className="hidden md:flex group  items-center gap-2 my-auto text-white font-medium  hover:underline underline-offset-4 drop-shadow-md"
 								>
 									View Schedule{" "}
 								</a>
