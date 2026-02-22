@@ -3,7 +3,7 @@ import { REGISTER_URL, SCHEDULE } from "../lib/constants";
 
 const Sidebar: FC = () => (
   <div className="lg:col-span-4 space-y-16">
-    <div id="schedule">
+    <div id="schedule" className="scroll-mt-28">
       <h3 className="font-mono text-xs uppercase tracking-widest border-b border-ink pb-2 mb-6">
         Itinerary
       </h3>

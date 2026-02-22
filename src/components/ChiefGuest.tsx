@@ -9,7 +9,10 @@ const CHIEF_GUEST = {
 };
 
 const ChiefGuest: FC = () => (
-	<section className="py-20 border-b border-ink bg-paper">
+	<section
+		className="py-20 border-b border-ink bg-paper scroll-mt-23"
+		id="chiefguest"
+	>
 		<div className="max-w-7xl mx-auto px-6">
 			<motion.div
 				initial={{ opacity: 0, y: 20 }}

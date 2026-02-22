@@ -4,7 +4,10 @@ import { type FC } from "react";
 import { STATS } from "../lib/constants";
 
 const StatsSection: FC = () => (
-	<section id="about" className="py-20 border-b border-ink bg-ink text-paper">
+	<section
+		id="about"
+		className="py-20 border-b border-ink bg-ink text-paper scroll-mt-28"
+	>
 		<div className="max-w-7xl mx-auto px-6">
 			{/* Date & Venue */}
 			<motion.div
