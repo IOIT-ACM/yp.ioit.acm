@@ -41,7 +41,7 @@ const FeeSection: FC = () => {
              <p className="text-ink/60 text-sm mb-4">
                 *Group Registration applies for teams of 6+ members.
                 <br />
-                *Flash Sale: ₹100 OFF coupons available on Mock YP Day (Feb).
+                *Flash Sale: ₹200 OFF coupons available on Mock YP Day (Feb).
              </p>
         </div>
       </div>
