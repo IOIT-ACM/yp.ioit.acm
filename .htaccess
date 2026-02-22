@@ -1,0 +1,14 @@
+DirectoryIndex dist/index.html
+
+RewriteEngine On
+
+
+# --- Asset Routing ---
+RewriteCond %{REQUEST_URI} !^/dist/
+RewriteCond %{DOCUMENT_ROOT}/dist%{REQUEST_URI} -f
+RewriteRule ^(.*)$ /dist/$1 [L]
+
+# --- SPA Routing ---
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /dist/index.html [L]

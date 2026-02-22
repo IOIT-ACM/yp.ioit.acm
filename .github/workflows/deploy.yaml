@@ -1,0 +1,61 @@
+name: Deploy Vite to yp.ioit.acm.org
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Build Vite app
+        run: bun run build
+
+      - name: Archive dist
+        run: tar -czf dist.tar.gz dist
+
+      - name: Upload build archive
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "dist.tar.gz"
+          target: "/home/${{ secrets.SSH_USER }}/"
+
+      - name: Deploy on server
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            LIVE_PATH="/home/${{ secrets.SSH_USER }}/yp.ioit.acm.org"
+            TMP_PATH="/home/${{ secrets.SSH_USER }}/yp_app"
+            ARCHIVE="/home/${{ secrets.SSH_USER }}/dist.tar.gz"
+
+            rm -rf $TMP_PATH
+            mkdir -p $TMP_PATH
+
+            tar -xzf $ARCHIVE -C $TMP_PATH
+
+            rm -rf $LIVE_PATH/*
+            mv $TMP_PATH/dist/* $LIVE_PATH/
+
+            rm -rf $TMP_PATH
+            rm -f $ARCHIVE
