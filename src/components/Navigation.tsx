@@ -21,17 +21,21 @@ const Navigation: FC<NavigationProps> = ({ isMenuOpen, setIsMenuOpen }) => (
 
 			{/* Center: Logos — absolute on mobile so they're truly centered */}
 			<div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2 sm:gap-4 md:static md:translate-x-0">
-				<img
-					src="ioit_acm_logo.webp"
-					alt="IOIT ACM Logo"
-					className="h-8 sm:h-12 w-auto object-contain"
-				/>
+				<a href="https://ioit.acm.org" target="_blank">
+					<img
+						src="ioit_acm_logo.webp"
+						alt="IOIT ACM Logo"
+						className="h-8 sm:h-12 w-auto object-contain"
+					/>
+				</a>
 				<div className="h-6 sm:h-8 w-[1px] bg-paper/20" />
-				<img
-					src="yp_logo.webp"
-					alt="IOIT Youth Parliament Logo"
-					className="h-8 sm:h-12 w-auto object-contain"
-				/>
+				<a href="/">
+					<img
+						src="yp_logo.webp"
+						alt="IOIT Youth Parliament Logo"
+						className="h-8 sm:h-12 w-auto object-contain"
+					/>
+				</a>
 			</div>
 
 			{/* Right: Register — always visible */}
