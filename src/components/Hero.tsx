@@ -43,7 +43,7 @@ const Hero: FC<HeroProps> = ({ y }) => (
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.8, ease: "easeOut" }}
 						>
-							<h1 className="font-serif text-7xl md:text-8xl lg:text-9xl leading-[0.9] mb-8 text-white drop-shadow-2xl">
+							<h1 className="font-serif text-5xl md:text-8xl lg:text-9xl leading-[0.9] mb-8 text-white drop-shadow-2xl">
 								Youth <br />
 								<span className="italic font-light text-paper">Parliament</span>
 							</h1>

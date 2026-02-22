@@ -10,7 +10,6 @@ interface NavigationProps {
 const Navigation: FC<NavigationProps> = ({ isMenuOpen, setIsMenuOpen }) => (
 	<nav className="fixed top-0 left-0 right-0 z-50 bg-ink/95 backdrop-blur-md border-b border-paper/10 text-paper">
 		<div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-3">
-
 			{/* Left: Hamburger (mobile only) */}
 			<button
 				onClick={() => setIsMenuOpen(!isMenuOpen)}
