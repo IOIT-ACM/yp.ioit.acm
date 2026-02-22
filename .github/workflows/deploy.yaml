@@ -24,38 +24,28 @@ jobs:
       - name: Build Vite app
         run: bun run build
 
-      - name: Archive dist
-        run: tar -czf dist.tar.gz dist
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Upload build archive
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          port: ${{ secrets.SSH_PORT }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "dist.tar.gz"
-          target: "/home/${{ secrets.SSH_USER }}/"
+      - name: Deploy via SSH stream
+        run: |
+          tar -czf - dist | \
+          ssh -p ${{ secrets.SSH_PORT }} \
+          ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} '
+            LIVE_PATH="$HOME/yp.ioit.acm.org"
+            TMP_PATH="$HOME/yp_app"
 
-      - name: Deploy on server
-        uses: appleboy/ssh-action@v1.2.0
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          port: ${{ secrets.SSH_PORT }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            LIVE_PATH="/home/${{ secrets.SSH_USER }}/yp.ioit.acm.org"
-            TMP_PATH="/home/${{ secrets.SSH_USER }}/yp_app"
-            ARCHIVE="/home/${{ secrets.SSH_USER }}/dist.tar.gz"
+            rm -rf "$TMP_PATH"
+            mkdir -p "$TMP_PATH"
 
-            rm -rf $TMP_PATH
-            mkdir -p $TMP_PATH
+            tar -xzf - -C "$TMP_PATH"
 
-            tar -xzf $ARCHIVE -C $TMP_PATH
+            rm -rf "$LIVE_PATH"/*
+            mv "$TMP_PATH"/dist/* "$LIVE_PATH"/
 
-            rm -rf $LIVE_PATH/*
-            mv $TMP_PATH/dist/* $LIVE_PATH/
-
-            rm -rf $TMP_PATH
-            rm -f $ARCHIVE
+            rm -rf "$TMP_PATH"
+          '
