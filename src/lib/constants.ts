@@ -17,7 +17,7 @@ export const COMMITTEES = [
 		title: "All India Political Parties Meet (AIPPM)",
 		agenda:
 			"Deliberation on the Union Budget 2026 focusing on middle-class welfare through fiscal discipline, revenue growth, spending priorities, and economic stability.",
-		guideLink: "#",
+		guideLink: "/aippm-study-guide.pdf",
 		image: "https://picsum.photos/seed/aippm_new/800/600",
 		logo: "/AIPPM.webp",
 		description:
@@ -37,7 +37,7 @@ export const COMMITTEES = [
 		title: "Maharashtra Legislative Assembly (MLA)",
 		agenda:
 			"Analysis of the Economic Impact of Direct Benefit Transfer (DBT) Schemes in the State: Public Welfare or a Burden on the Treasury for Elections?",
-		guideLink: "#",
+		guideLink: "/mla-study-guide.pdf",
 		image: "https://picsum.photos/seed/mla_new/800/600",
 		logo: "/MLA.webp",
 		description:
