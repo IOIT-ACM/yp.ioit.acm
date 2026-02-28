@@ -73,7 +73,7 @@ const Footer: FC<FooterProps> = ({ scrollToSection }) => {
 		},
 		{
 			name: "Krushi Soni",
-			role: "Chargé D'affaires",
+			role: "Delegate Affairs",
 			tel: "+917249453073",
 			display: "+91 72494 53073",
 		},
