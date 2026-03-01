@@ -23,7 +23,7 @@ const StatsSection: FC = () => (
 						<p className="text-xs uppercase tracking-widest opacity-50 mb-1">
 							Date
 						</p>
-						<p className="font-serif text-2xl md:text-3xl">March 13–14, 2026</p>
+						<p className="font-serif text-2xl md:text-3xl">March 14-15, 2026</p>
 					</div>
 				</div>
 				<div className="hidden md:block h-12 w-px bg-paper/20" />
