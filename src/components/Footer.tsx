@@ -64,20 +64,20 @@ const Footer: FC<FooterProps> = ({ scrollToSection }) => {
 		},
 	];
 
-	const contacts = [
-		{
-			name: "Aditya Godse",
-			role: "Director General",
-			tel: "+917248945402",
-			display: "+91 72489 45402",
-		},
-		{
-			name: "Krushi Soni",
-			role: "Delegate Affairs",
-			tel: "+917249453073",
-			display: "+91 72494 53073",
-		},
-	];
+	// const contacts = [
+	// 	{
+	// 		name: "",
+	// 		role: "",
+	// 		tel: "",
+	// 		display: "",
+	// 	},
+	// 	{
+	// 		name: "",
+	// 		role: "",
+	// 		tel: "",
+	// 		display: "",
+	// 	},
+	// ];
 
 	const marqueeText = "IOIT Youth Parliament '26 · Organized by AISSMS IOIT ACM · Pune, India · Model United Nations";
 
@@ -411,7 +411,7 @@ const Footer: FC<FooterProps> = ({ scrollToSection }) => {
 					</div>
 
 					{/* ── Contact ── */}
-					<div className="footer-col footer-contact-col">
+					{/* <div className="footer-col footer-contact-col">
 						<h4
 							style={{
 								fontFamily: "'DM Mono', monospace",
@@ -484,7 +484,7 @@ const Footer: FC<FooterProps> = ({ scrollToSection }) => {
 								</li>
 							))}
 						</ul>
-					</div>
+					</div> */}
 				</div>
 
 				<hr className="footer-divider-rule" />
